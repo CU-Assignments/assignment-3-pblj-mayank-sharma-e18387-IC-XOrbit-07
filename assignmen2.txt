@@ -1,0 +1,156 @@
+// Product Class
+class Product {
+    int id;
+    String name;
+    double price;
+
+    // Constructor
+    public Product(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    // Method to display product details
+    public void displayProductDetails() {
+        System.out.println("Product Details:");
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Price: " + price);
+    }
+
+    public static void main(String[] args) {
+        // Create a product object
+        Product product = new Product(101, "Laptop", 75000);
+        
+        // Display the product details
+        product.displayProductDetails();
+    }
+}
+
+
+// Base class Book
+class Book {
+    String title;
+    String author;
+    double price;
+
+    // Constructor
+    public Book(String title, String author, double price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    // Method to display book details
+    public void displayBookDetails() {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Price: " + price);
+    }
+}
+
+// Derived class Fiction
+class Fiction extends Book {
+    public Fiction(String title, String author, double price) {
+        super(title, author, price);
+    }
+
+    public void displayBookDetails() {
+        System.out.println("Fiction Book Details:");
+        super.displayBookDetails();
+    }
+}
+
+// Derived class NonFiction
+class NonFiction extends Book {
+    public NonFiction(String title, String author, double price) {
+        super(title, author, price);
+    }
+
+    public void displayBookDetails() {
+        System.out.println("Non-Fiction Book Details:");
+        super.displayBookDetails();
+    }
+}
+
+public class LibraryManagementSystem {
+    public static void main(String[] args) {
+        // Create Fiction and NonFiction book objects
+        Book book1 = new Fiction("Harry Potter", "J.K. Rowling", 500);
+        Book book2 = new NonFiction("Sapiens", "Yuval Noah Harari", 700);
+
+        // Display book details
+        book1.displayBookDetails();
+        book2.displayBookDetails();
+    }
+}
+
+
+// Abstract class Person
+abstract class Person {
+    String name;
+    int age;
+
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Abstract method to display details
+    public abstract void displayDetails();
+}
+
+// Derived class Student
+class Student extends Person {
+    int rollNumber;
+
+    // Constructor
+    public Student(String name, int age, int rollNumber) {
+        super(name, age);
+        this.rollNumber = rollNumber;
+    }
+
+    // Override method to display student details
+    @Override
+    public void displayDetails() {
+        System.out.println("Student Details:");
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Roll Number: " + rollNumber);
+    }
+}
+
+// Derived class Teacher
+class Teacher extends Person {
+    String subject;
+
+    // Constructor
+    public Teacher(String name, int age, String subject) {
+        super(name, age);
+        this.subject = subject;
+    }
+
+    // Override method to display teacher details
+    @Override
+    public void displayDetails() {
+        System.out.println("Teacher Details:");
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Subject: " + subject);
+    }
+}
+
+public class StudentInformationSystem {
+    public static void main(String[] args) {
+        // Create Student and Teacher objects
+        Person student = new Student("Alice", 20, 101);
+        Person teacher = new Teacher("Mr. Smith", 40, "Mathematics");
+
+        // Display details
+        student.displayDetails();
+        teacher.displayDetails();
+    }
+}
+
